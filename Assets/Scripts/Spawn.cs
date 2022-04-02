@@ -10,12 +10,11 @@ public class Spawn : MonoBehaviour
     private GameObject tilePref;
 
     private int columnNumber = 3;
-    
-    [SerializeField]
-    private float x_Space, y_Space;
 
-    [SerializeField]
-    private float x_Start, y_start;
+    private float x_Space = 2.05f, y_Space = 2.05f;
+
+    private float x_Start = -2.5f, y_start = 2;
+
     public GameObject[] gameObjects;
     public GameObject tiles;
     public Levels levels;

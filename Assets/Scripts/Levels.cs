@@ -27,7 +27,7 @@ public class Levels : MonoBehaviour
         spawn.InitializeTiles();
 
         initializeObjects.SetSprites();
-        graphics.findSymbolText.text = "Find '" + initializeObjects.letterToFind + "'";
+        graphics.findSymbolText.text = "Find '" + initializeObjects.LetterToFind + "'";
         graphics.InitialGraphics(spawn.tiles.transform);
         isGameEnd = false;
         

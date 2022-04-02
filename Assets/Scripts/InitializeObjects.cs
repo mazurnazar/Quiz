@@ -6,24 +6,30 @@ using DG.Tweening;
 
 public class InitializeObjects : MonoBehaviour
 {
-    public CardBundleDate letters;
-    public CardBundleDate newData;
-    public CardBundleDate numbers;
-    public Sprite[] lettersImages;
-    public Sprite[] numbersImages;
-    public string alphabed = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    public string digits = "1234567890";
-    public string newdata;
-    public string letterToFind;
-    public GameObject[] sprites;
-    public Spawn spawn;
-    Levels levels;
+    [SerializeField] private CardBundleDate letters;
+    [SerializeField] private CardBundleDate newData;
+    [SerializeField] private CardBundleDate numbers;
+    [SerializeField] private Sprite[] lettersImages;
+    [SerializeField] private Sprite[] numbersImages;
+    private string alphabed = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    private string digits = "1234567890";
+    private string newdata = "";
+    public string NewData
+    {
+        get => newdata;
+        set { value = newdata; }
+    }
+    private string letterToFind;
+    public string LetterToFind
+    {
+        get => letterToFind;
+        private set { }
+    }
+    private GameObject[] sprites;
+    private Spawn spawn;
 
-    // Start is called before the first frame update
     void Start()
     {
-        
-        levels = new Levels();
         spawn = GameObject.Find("SpawnManager").GetComponent<Spawn>();
         
         letters.CardData = new CardData[alphabed.Length];
@@ -67,21 +73,18 @@ public class InitializeObjects : MonoBehaviour
             sprites[i].AddComponent<BoxCollider2D>();
            
         }
-        //spawn.tiles.transform.DOScale(1.5f, 1);
-       // spawn.tiles.transform.DOScale(0.5f, 1);
-       // spawn.tiles.transform.DOScale(1f, 1);
     }
     CardBundleDate FindRandom(int level)
     {
         newData = new CardBundleDate();
+        newdata = "";
         newData.CardData = new CardData[spawn.gameObjects.Length];
         var data = Random.Range(0, 2) == 0 ? numbers : letters;
-        //Debug.Log(spawn.gameObjects.Length);
         for (int i = 0; i < spawn.gameObjects.Length; i++) 
         {
             Random: int number = Random.Range(0, data.CardData.Length);
             newData.CardData[i] = data.CardData[number];
-            foreach (var item in newdata)
+            foreach (var item in NewData)
             {
                 if(newData.CardData[i].Identifier == item.ToString())
                  goto Random;

@@ -20,7 +20,7 @@ public class Click : MonoBehaviour
     {
         if (levels.isGameEnd == false) 
         {
-            if (this.gameObject.name == initializeObjects.letterToFind)
+            if (this.gameObject.name == initializeObjects.LetterToFind)
             {
                 Debug.Log("found");
 
@@ -32,7 +32,7 @@ public class Click : MonoBehaviour
                     {
                         Destroy(item);
                     }
-                    initializeObjects.newdata = "";
+                    initializeObjects.NewData = "";
                     levels.StartLevel();
                 }
                 else levels.isGameEnd = true;
