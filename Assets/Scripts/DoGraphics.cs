@@ -13,13 +13,15 @@ public class DoGraphics : MonoBehaviour
     private void Start()
     {
         findSymbolText.DOFade(0, 0);
-        spawn = GameObject.Find("SpawnManager").GetComponent<Spawn>();
-        levels = GameObject.Find("SpawnManager").GetComponent<Levels>();
-        initializeObjects = GameObject.Find("SpawnManager").GetComponent<InitializeObjects>();
+        
         
     }
     public void InitialGraphics(Transform transformobject)
     {
+        spawn = GameObject.Find("SpawnManager").GetComponent<Spawn>();
+        levels = GameObject.Find("SpawnManager").GetComponent<Levels>();
+        initializeObjects = GameObject.Find("SpawnManager").GetComponent<InitializeObjects>();
+
         if (levels.levelN == 1)
         {
             spawn.tiles.transform.DOScale(1f, 1);

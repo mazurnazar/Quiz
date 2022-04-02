@@ -16,14 +16,16 @@ public class Levels : MonoBehaviour
 
     private void Start()
     {
-        spawn = GameObject.Find("SpawnManager").GetComponent<Spawn>();
-        initializeObjects = GameObject.Find("SpawnManager").GetComponent<InitializeObjects>();
-        graphics = GameObject.Find("SpawnManager").GetComponent<DoGraphics>();
+        
         StartLevel();
     }
     public void StartLevel()
     {
+        spawn = GameObject.Find("SpawnManager").GetComponent<Spawn>();
+        initializeObjects = GameObject.Find("SpawnManager").GetComponent<InitializeObjects>();
+        graphics = GameObject.Find("SpawnManager").GetComponent<DoGraphics>();
         spawn.InitializeTiles();
+
         initializeObjects.SetSprites();
         graphics.findSymbolText.text = "Find '" + initializeObjects.letterToFind + "'";
         graphics.InitialGraphics(spawn.tiles.transform);
