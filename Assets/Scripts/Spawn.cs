@@ -11,7 +11,7 @@ public class Spawn : MonoBehaviour
 
     private int columnNumber = 3;
 
-    private float x_Space = 2.05f, y_Space = 2.05f;
+    private float x_Space = 2.5f, y_Space = 2.5f;
 
     private float x_Start = -2.5f, y_start = 2;
 
